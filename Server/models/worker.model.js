@@ -1,5 +1,5 @@
 import {model,Schema} from "mongoose"
-
+import bcrypt from 'bcrypt'
 const WorkerSchema=new Schema(
     {
         firstName:{
@@ -26,7 +26,7 @@ const WorkerSchema=new Schema(
             type:Number,
             required:[true,"phone number is required"],
             validate:{
-                validator:(v)=v.toString().length==8,
+                validator:(v)=>v.toString().length==8,
                 message:"phone number must be 8 numbers"
             }
         },
@@ -35,7 +35,7 @@ const WorkerSchema=new Schema(
         },
         acctype:{
             type:String,
-            default:"Client"
+            default:"Worker"
         },
         password:{
             type:String,
@@ -43,6 +43,7 @@ const WorkerSchema=new Schema(
             minlength:[8,"Password must be at least 8 characters!"]
         },
         category:{
+            type:String,
             required:[true,"Category is required"]
         },
         description:{
@@ -64,8 +65,8 @@ const WorkerSchema=new Schema(
 )
 
 WorkerSchema.virtual('confirmPassword')
-.get( () => this._confirmPassword )
-.set( value => this._confirmPassword = value );
+.get(function () { return this._confirmPassword })
+.set( function (value)   { return this._confirmPassword = value });
 
 WorkerSchema.pre('validate', function(next) {
     if (this.password !== this.confirmPassword) {
@@ -73,7 +74,6 @@ WorkerSchema.pre('validate', function(next) {
     }
     next();
     });
-    const bcrypt = require('bcrypt');
 
     WorkerSchema.pre('save', function(next) {
     bcrypt.hash(this.password, 10)

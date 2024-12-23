@@ -1,4 +1,4 @@
-import WorkerController from "../controllers/worker.controller";
+import WorkerController from "../controllers/worker.controller.js";
 import { Router } from "express";
 
 const router4=Router()

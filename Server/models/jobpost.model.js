@@ -1,6 +1,10 @@
 import {model ,Schema} from 'mongoose'
 
 const donjobSchema= new Schema({
+    workerID:{
+        type:String,
+        required:[true,"Worker Id not Valid"]
+    },
     title:{
         type:String,
         required:[true,"Please Enter A valid Tittle"],

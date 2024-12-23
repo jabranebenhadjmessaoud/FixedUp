@@ -2,9 +2,9 @@ import Worker from "../models/worker.model.js";
 const WorkerController={
     createWorker: async(req,res)=>{
         try {
-            const newclient = await Client.create(req.body)
-            res.json(newclient)
-            console.log(newclient);
+            const newWorker = await Worker.create(req.body)
+            res.json(newWorker)
+            console.log(newWorker);
         } catch (err) {
             console.log(err)
             res.status(400).json(err)
