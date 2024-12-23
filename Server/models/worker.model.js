@@ -1,6 +1,6 @@
 import {model,Schema} from "mongoose"
 
-const ClientSchema=new Schema(
+const WorkerSchema=new Schema(
     {
         firstName:{
             type:String,
@@ -39,18 +39,35 @@ const ClientSchema=new Schema(
         },
         password:{
             type:String,
-            minlength:[8,"Password must be at least 8 characters!"],
-            maxlength:[40,"Password must be less than 40 characters"]
-        }
+            required:[true,"password is required"],
+            minlength:[8,"Password must be at least 8 characters!"]
+        },
+        category:{
+            required:[true,"Category is required"]
+        },
+        description:{
+            type:String,
+            required:[true,"description is required"],
+            minlength:[10,"Description must be at least 10 characters"]
+        },
+        skills:{
+            type:String,
+            required:[true,"skills are required"]
+        },
+        password:{
+            type:String,
+            required:[true,"password is required"],
+            minlength:[8,"Password must be at least 8 characters!"]
+        },
     },
     {timestamp:true}   
 )
 
-ClientSchema.virtual('confirmPassword')
+WorkerSchema.virtual('confirmPassword')
 .get( () => this._confirmPassword )
 .set( value => this._confirmPassword = value );
 
-ClientSchema.pre('validate', function(next) {
+WorkerSchema.pre('validate', function(next) {
     if (this.password !== this.confirmPassword) {
         this.invalidate('confirmPassword', 'Password must match confirm password');
     }
@@ -58,7 +75,7 @@ ClientSchema.pre('validate', function(next) {
     });
     const bcrypt = require('bcrypt');
 
-    ClientSchema.pre('save', function(next) {
+    WorkerSchema.pre('save', function(next) {
     bcrypt.hash(this.password, 10)
         .then(hash => {
         this.password = hash;
@@ -66,5 +83,5 @@ ClientSchema.pre('validate', function(next) {
     });
 });
 
-const Client=model("Client",ClientSchema)
-export default Client
+const Worker=model("Worker",WorkerSchema)
+export default Worker
