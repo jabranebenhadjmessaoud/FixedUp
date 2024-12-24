@@ -25,11 +25,14 @@
   }
   .user-image{
     height: 70px;
+    border-radius: 50%;
   }
   .auth-avatar{
     text-align: center;
     margin-top: -50px;
+    border-radius: 50%;
   }
+
   .auth{
     margin-top: 35px;
     border: none;
