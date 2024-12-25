@@ -1,0 +1,19 @@
+.landingppageimage{
+
+    width:100%;
+    height: 650px;
+    position: relative;
+    
+}
+.uper{
+    display: flex;
+    justify-items: right;
+    flex-direction: column;
+    margin-left: 1000px;
+}
+
+
+.uper img{
+    width: 500px;
+    height: 400px;
+}

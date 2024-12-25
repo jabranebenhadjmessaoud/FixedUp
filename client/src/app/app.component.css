@@ -2,9 +2,25 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: #103d65; 
+    background-color: #176087; 
   }
   
   #root, app-root {
     height: 100%;
+  }
+
+  .navbarcostum{
+    display: flex;
+    justify-content: space-around;
+    align-items:center ;
+    background-color: rgba(9, 218, 207, 0.5);
+    height: 70px;
+  }
+  .logoimg{
+    width: 100px;
+    height: 90px;
+  }
+  .navbuttons{
+    display: flex;
+    gap: 30px;
   }
