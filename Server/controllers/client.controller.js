@@ -90,21 +90,48 @@ const ClientController={
             return res.status(500).json({ msg: "Server error", error: err.message });
         }
     },
-    register: (req, res) => {
-        Client.create(req.body)
-            .then(client => {
-                const clientToken = jwt.sign({
-                    id: client._id
-                }, process.env.SECRET_KEY);
+        register : async (req, res) => {
+        try {
+            const { firstName, lastName,phone,address,acctype, email, password, confirmPassword } = req.body;
+    
+            // Check if the password matches the confirmation password
+            
+    
+            // Check if the email already exists
+            const existingClient = await Client.findOne({ email });
+    
+            if (existingClient) return res.status(400).json({errors:{ email: {message:'Email already in use' }}});
+    
+            // Create a new Client
+            const newClient = new Client({ firstName, lastName,phone,address,acctype, email, password,confirmPassword});
+            await newClient.save();
+    
+            res.status(201).json({ message: 'Client registered successfully' });
+        } catch (err) {
+            res.status(500).json(err );
+            console.log(err)
+        }
+    },
+    // register: async (req, res) => {
+    //     const client = await Client.findOne({ email: req.body.email });
+    
+    //     if (client != null) {
+    //         return res.status(500).json({  email: {message:"Email is used"} });
+    //     }
+    //     Client.create(req.body)
+    //         .then(client => {
+    //             const clientToken = jwt.sign({
+    //                 id: client._id
+    //             }, process.env.SECRET_KEY);
         
-                res
-                    .cookie("clienttoken", clientToken, secret, {
-                        httpOnly: true
-                    })
-                    .json({ msg: "success!", client: client });
-            })
-            .catch(err => res.json(err));
-        },
+    //             return res .status(200)
+    //                 .cookie("clienttoken", clientToken, secret, {
+    //                     httpOnly: true
+    //                 })
+    //                 .json({ msg: "success!", client: client,token:clientToken });
+    //         })
+    //         .catch(err => res.status(500).json(err));
+    //     },
     logout: (req, res) => {
         res.clearCookie('clienttoken');
         res.sendStatus(200);
