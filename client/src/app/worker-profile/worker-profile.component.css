@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+.container{
+    margin: 0 auto;
+}
+.allpage{
+    height: fit-content;
+    background-color:#01374d ;
+}
+body {
+    background-color:#01374d
+}
+
+.card {
+    width: 700px;
+    background: linear-gradient(#013e42, #005279);   
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: 0px 0px 30px #03F3E9;
+    border-radius: 5px;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 25px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 20px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #01374d;
+    color: #f1f1f3;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #ffffff;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 18px;
+    color: #bbdeff;
+    font-weight: bold
+}
+
+.date {
+    background-color: #047d9b
+}
+
+.onepost{
+    background-color: cadetblue;
+}
+.onepost:hover{
+    transform: scale(1.1)
+}
