@@ -37,11 +37,6 @@ const WorkerSchema=new Schema(
             type:String,
             default:"Worker"
         },
-        password:{
-            type:String,
-            required:[true,"password is required"],
-            minlength:[8,"Password must be at least 8 characters!"]
-        },
         category:{
             type:String,
             required:[true,"Category is required"]
@@ -57,9 +52,9 @@ const WorkerSchema=new Schema(
         },
         password:{
             type:String,
-            required:[true,"password is required"],
-            minlength:[8,"Password must be at least 8 characters!"]
-        },
+            minlength:[8,"Password must be at least 8 characters!"],
+            maxlength:[40,"Password must be less than 40 characters"]
+        }
     },
     {timestamp:true}   
 )
