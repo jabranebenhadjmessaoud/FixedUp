@@ -57,7 +57,7 @@ const WorkerController={
         }
     
         try {
-            const worker = await WorkerSchema.findOne({ email: req.body.email });
+            const worker = await Worker.findOne({ email: req.body.email });
     
             if (worker === null) {
                 return res.status(400).json({ msg: "Email not found" });
@@ -88,7 +88,7 @@ const WorkerController={
         }
     },
     register: (req, res) => {
-        WorkerSchema  .create(req.body)
+        Worker .create(req.body)
             .then(worker => {
                 const workerToken = jwt.sign({
                     id: worker._id

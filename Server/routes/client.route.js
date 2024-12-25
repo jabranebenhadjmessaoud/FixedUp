@@ -4,11 +4,15 @@ import { Router } from "express";
 
 const router3=Router()
 
-router3.route("/createclient")
-    .post(ClientController.createClient)
+router3.route("/client/register")
+    .post(ClientController.register)
+
+router3.route("/login")
+    .post(ClientController.login)
 
 router3.route("/allclient")
     .get(ClientController.retrieveAll)
+    .post(ClientController.createClient)
 
 router3.route("/client/:id")
     .get(ClientController.retrieveOne)

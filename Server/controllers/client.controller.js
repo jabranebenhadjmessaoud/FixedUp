@@ -1,4 +1,6 @@
 import Client from "../models/client.model.js";
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
 const ClientController={
     createClient: async(req,res)=>{
@@ -58,7 +60,7 @@ const ClientController={
         }
     
         try {
-            const client = await clientSchema.findOne({ email: req.body.email });
+            const client = await Client.findOne({ email: req.body.email });
     
             if (client === null) {
                 return res.status(400).json({ msg: "Email not found" });
@@ -81,7 +83,7 @@ const ClientController={
                     httpOnly: true,
                     secure: process.env.NODE_ENV === "production",
                 })
-                .json({ msg: "success!", client: { firstName: client.firstName, lastName: client.lastName } });
+                .json({ msg: "success!", client: { firstName: client.firstName, lastName: client.lastName, id: client._id},token:clientToken });
     
         } catch (err) {
             console.error(err);
@@ -89,7 +91,7 @@ const ClientController={
         }
     },
     register: (req, res) => {
-        clientSchema  .create(req.body)
+        Client.create(req.body)
             .then(client => {
                 const clientToken = jwt.sign({
                     id: client._id

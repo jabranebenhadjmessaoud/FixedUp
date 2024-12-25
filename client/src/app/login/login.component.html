@@ -6,18 +6,19 @@
                     <div class="auth-avatar">
                     <img src="/images/avatar-Photoroom.png" alt="user" class="user-image">
                     </div>
-                    <form>
-                    <div class="form-group">
-                        <label for="email">Email : </label>
-                        <input type="text" name="email" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password : </label>
-                        <input type="password" name="password" class="form-control" placeholder="********">
-                    </div>
-                    <div class="text-center">
-                        <input type="submit" class="btn-my" value="Login">
-                    </div>
+                    <form (ngSubmit)="login()">
+                        <p *ngIf="errMessage" class="error" style="color: red; text-align: center;">{{errMessage.msg}}</p>
+                        <div class="form-group">
+                            <label for="email">Email : </label>
+                            <input type="text" name="email" class="form-control" [(ngModel)]="data.email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password : </label>
+                            <input type="password" name="password" class="form-control" [(ngModel)]="data.password" >
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn-my" value="Login">
+                        </div>
                     </form>
                     <div class="text-center sign-up">
                         Don`t have an account ? <a routerLink="/sign-up">Sign Up</a> here.
