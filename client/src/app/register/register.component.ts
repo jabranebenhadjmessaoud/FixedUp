@@ -16,14 +16,14 @@ export class RegisterComponent {
     errMessage:any={}
     constructor(private apiService:ApiService,private router:Router){}
     register():void{
-      if (this.data.acctype=='client'){
+      if (this.data.acctype=='Client'){
       this.apiService.clientRegister(this.data).subscribe({
         next:(res)=>console.log("register"),
         error:err=>this.errMessage=err
       })
     }else{
       this.apiService.WorkerRegister(this.data).subscribe({
-        next:(res)=>console.log("regustered worker"),
+        next:(res)=>console.log("regustered worker",res),
         error:err=>this.errMessage=err
       })
     }

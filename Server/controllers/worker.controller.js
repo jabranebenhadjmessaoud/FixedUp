@@ -87,21 +87,28 @@ const WorkerController={
             return res.status(500).json({ msg: "Server error", error: err.message });
         }
     },
-    register: (req, res) => {
-        Worker .create(req.body)
-            .then(worker => {
-                const workerToken = jwt.sign({
-                    id: worker._id
-                }, process.env.SECRET_KEY);
-        
-                res
-                    .cookie("workertoken", workerToken, secret, {
-                        httpOnly: true
-                    })
-                    .json({ msg: "success!", worker: worker });
-            })
-            .catch(err => res.json(err));
-        },
+    register : async (req, res) => {
+        try {
+            const { firstName, lastName,phone,address,acctype, email, password, confirmPassword,category,description,skills } = req.body;
+    
+            // Check if the password matches the confirmation password
+            
+    
+            // Check if the email already exists
+            const existingWorker = await Worker.findOne({ email });
+    
+            if (existingWorker) return res.status(400).json({errors:{ email: {message:'Email already in use' }}});
+    
+            // Create a new Worker
+            const newWorker = new Worker({ firstName, lastName,phone,address,acctype, email, password,confirmPassword,category,description,skills });
+            await newWorker.save();
+    
+            res.status(201).json({ message: 'Worker registered successfully' });
+        } catch (err) {
+            res.status(500).json(err );
+            console.log(err)
+        }
+    },
     logout: (req, res) => {
         res.clearCookie('workertoken');
         res.sendStatus(200);
