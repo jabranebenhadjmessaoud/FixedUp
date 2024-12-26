@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path:"login",component:LoginComponent},
     {path:"register",component:RegisterComponent},
     {path:"clientprofile",component:ClientProfileComponent},
-    {path:"workerprofile",component:WorkerProfileComponent},
+    {path:"workerprofile/:id",component:WorkerProfileComponent},
     {path:"categories",component:CategoriesComponent},
     {path:"welders",component:WelderslistComponent},
     {path:"plumbers",component:PlumberslistComponent},

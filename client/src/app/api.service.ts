@@ -58,4 +58,7 @@ export class ApiService {
   getallworkers():Observable<any>{
     return this.http.get(this.baseurl+"/allworker")
   }
+  getoneworker(workerid:string): Observable<any>{
+    return this.http.get(`${this.baseurl}/worker/${workerid}`)
+  }
 }
