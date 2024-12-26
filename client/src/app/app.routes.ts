@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { WorkerProfileComponent } from './worker-profile/worker-profile.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { PostFormComponent } from './post-form/post-form.component';
 
 
 export const routes: Routes = [
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path:"register",component:RegisterComponent},
     {path:"clientprofile",component:ClientProfileComponent},
     {path:"workerprofile",component:WorkerProfileComponent},
-    {path:"categories",component:CategoriesComponent}
+    {path:"categories",component:CategoriesComponent},
+    {path:"newpost",component:PostFormComponent}
 ]
