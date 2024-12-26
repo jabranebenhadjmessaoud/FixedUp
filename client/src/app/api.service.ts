@@ -40,6 +40,13 @@ export class ApiService {
     )
   }
 
+  uploadImage(sticker: File): Observable<any> {
+    console.log(sticker);
+    const data = new FormData();
+    data.append('sticker', sticker, sticker.name);
+    return this.http.post<any>(this.baseurl+"/upload", data);
+  }
+
   private handleError(err: any): Observable<any> {
     console.error('an error occurred!', err.error.msg)
     return throwError(()=>err.error)

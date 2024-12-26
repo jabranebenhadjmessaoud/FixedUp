@@ -14,15 +14,18 @@ import { ApiService } from '../api.service';
 export class PostFormComponent {
   data:Post={}
   errMessage:any={}
-  user : any| null=null
+  user_id : any| null=null
   ngOnInit():void{
-    this.user=localStorage.getItem("user")
+    this.user_id=localStorage.getItem("user_id")
   }
   constructor(private apiService:ApiService,private router:Router){}
   addPost():void{
-    this.data={...this.data,worker:this.user._id}
+
+    this.data={...this.data,worker:this.user_id}
     this.apiService.createPost(this.data).subscribe({
-      next:res=>console.log("posted"),
+      next:res=>{
+        this.apiService.uploadImage(this.data.img!)
+        console.log("posted")},
       error:err=>this.errMessage=err
     })
   }

@@ -17,7 +17,8 @@ const donjobSchema= new Schema({
         maxlength:[255,"the Description cannot be more than 255 caracters"]
         },
     img:{
-        type:String
+        type:String,
+        required:[true,"Please Enter image"],
     },
 },
 { timestamps: true }

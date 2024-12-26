@@ -2,6 +2,6 @@ export interface Post {
     _id?:string
     title?:string
     description?:string
-    img?:string
+    img?:File
     worker?:any
 }
