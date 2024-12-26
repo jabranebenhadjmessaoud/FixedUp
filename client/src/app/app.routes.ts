@@ -11,6 +11,7 @@ import { MechanicslistComponent } from './mechanicslist/mechanicslist.component'
 import { ElectricianslistComponent } from './electricianslist/electricianslist.component';
 import { ConstructorslistComponent } from './constructorslist/constructorslist.component';
 import { CarpenterslistComponent } from './carpenterslist/carpenterslist.component';
+import { PostFormComponent } from './post-form/post-form.component';
 
 
 export const routes: Routes = [
@@ -27,4 +28,5 @@ export const routes: Routes = [
     {path:"electricians",component:ElectricianslistComponent},
     {path:"constructors",component:ConstructorslistComponent},
     {path:"carpenters",component:CarpenterslistComponent},
+    {path:"newpost",component:PostFormComponent}
 ]

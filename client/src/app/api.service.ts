@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { User } from './user';
+import { Post } from './post';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,12 @@ export class ApiService {
   }
   clientRegister(data:User):Observable <any>{
     return this.http.post(this.baseurl+"/client/register",data).pipe(
+      catchError(this.handleError2)
+    )
+  }
+
+  createPost(data:Post):Observable<any>{
+    return this.http.post(this.baseurl+"/createjobpost",data).pipe(
       catchError(this.handleError2)
     )
   }
