@@ -34,5 +34,7 @@ export class ApiService {
     console.error('an error occurred!', err)
     return throwError(()=>err.error.errors)
   }
-
+  getallworkers():Observable<any>{
+    return this.http.get(this.baseurl+"/allworker")
+  }
 }

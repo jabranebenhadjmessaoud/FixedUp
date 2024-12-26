@@ -1,13 +1,21 @@
 <div class="navbarcostum">
     <img src="images\fixed-up-high-resolution-logo-removebg-preview.png" alt="logo" class="logoimg">
     <div class="navbuttons">
-        <button mat-fab extended>
+        <button mat-fab extended routerLink="/">
             <mat-icon>home</mat-icon>
             Home
         </button>
-        <button mat-fab extended>
+        <button mat-fab extended routerLink="/categories">
+            <mat-icon>category</mat-icon>
+            Categories
+        </button>
+        <button mat-fab extended routerLink="/login" >
             <mat-icon>login</mat-icon>
             Login
+        </button>
+        <button mat-fab extended routerLink="/register">
+            <mat-icon>draw</mat-icon>
+            Register
         </button>
         <button mat-fab extended>
             <mat-icon>logout</mat-icon>

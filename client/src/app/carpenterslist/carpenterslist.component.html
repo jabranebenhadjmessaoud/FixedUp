@@ -1,0 +1,11 @@
+<p>carpenterslist works!</p>
+<h2>THis is the list of the Carpenters</h2>
+<div *ngIf="carpenterslist.length">
+
+    <div class="card" *ngFor="let worker of carpenterslist">  
+        <div class="card-header"><h3>{{worker.firstname}} {{worker.lastname}}</h3> </div>
+        <div class="card-body"><p>{{worker.email}}</p> <p>{{worker.address}}</p></div>
+        <div class="card-footer">{{worker.category}}</div>
+    </div>
+
+</div>

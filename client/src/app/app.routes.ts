@@ -5,6 +5,12 @@ import { RegisterComponent } from './register/register.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { WorkerProfileComponent } from './worker-profile/worker-profile.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { WelderslistComponent } from './welderslist/welderslist.component';
+import { PlumberslistComponent } from './plumberslist/plumberslist.component';
+import { MechanicslistComponent } from './mechanicslist/mechanicslist.component';
+import { ElectricianslistComponent } from './electricianslist/electricianslist.component';
+import { ConstructorslistComponent } from './constructorslist/constructorslist.component';
+import { CarpenterslistComponent } from './carpenterslist/carpenterslist.component';
 
 
 export const routes: Routes = [
@@ -14,5 +20,11 @@ export const routes: Routes = [
     {path:"register",component:RegisterComponent},
     {path:"clientprofile",component:ClientProfileComponent},
     {path:"workerprofile",component:WorkerProfileComponent},
-    {path:"categories",component:CategoriesComponent}
+    {path:"categories",component:CategoriesComponent},
+    {path:"welders",component:WelderslistComponent},
+    {path:"plumbers",component:PlumberslistComponent},
+    {path:"mechanics",component:MechanicslistComponent},
+    {path:"electricians",component:ElectricianslistComponent},
+    {path:"constructors",component:ConstructorslistComponent},
+    {path:"carpenters",component:CarpenterslistComponent},
 ]
