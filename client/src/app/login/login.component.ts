@@ -20,8 +20,9 @@ export class LoginComponent {
       next:(res)=>{
         console.log("logIn")
         localStorage.setItem('token', res.token);
-        localStorage.setItem('user', res.client);
-        console.log(res)
+        localStorage.setItem('user_id', res.client.id);
+        localStorage.setItem('acctype', res.client.acctype);
+        // console.log(res)
         verif=true
         console.log(verif)
       },
@@ -32,7 +33,9 @@ export class LoginComponent {
       this.apiService.workerLogin(this.data).subscribe({
         next:(res)=>{
           localStorage.setItem('token',res.token)
-          localStorage.setItem('user',res.worker)
+          localStorage.setItem('user_id',res.worker.id)
+          localStorage.setItem('acctype',res.worker.acctype)
+          console.log(localStorage.getItem("acctype"))
           console.log("worker login")
           console.log(res)
         },
