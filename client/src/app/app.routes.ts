@@ -13,7 +13,6 @@ import { ConstructorslistComponent } from './constructorslist/constructorslist.c
 import { CarpenterslistComponent } from './carpenterslist/carpenterslist.component';
 import { PostFormComponent } from './post-form/post-form.component';
 
-
 export const routes: Routes = [
 
     {path:"",component:HomeComponent},
@@ -30,3 +29,5 @@ export const routes: Routes = [
     {path:"carpenters",component:CarpenterslistComponent},
     {path:"newpost",component:PostFormComponent}
 ]
+
+
