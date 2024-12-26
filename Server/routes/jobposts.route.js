@@ -1,11 +1,12 @@
 import JobPostController from "../controllers/jobpost.controller.js";
 import { Router } from "express";
+import authenticate from "../config/jwt.config.js"
 
 const router=Router()
 
-router.route("/createjobpost")
-    .post(JobPostController.create)
-
+// router.route("/createjobpost")
+//     .post(authenticate,JobPostController.create)
+router.post("/createjobpost",authenticate,JobPostController.create)
 router.route("/alljobposts")
     .get(JobPostController.retrieveAll)
 

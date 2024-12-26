@@ -14,8 +14,13 @@ import { ApiService } from '../api.service';
 export class PostFormComponent {
   data:Post={}
   errMessage:any={}
+  user : any| null=null
+  ngOnInit():void{
+    this.user=localStorage.getItem("user")
+  }
   constructor(private apiService:ApiService,private router:Router){}
   addPost():void{
+    this.data={...this.data,worker:this.user._id}
     this.apiService.createPost(this.data).subscribe({
       next:res=>console.log("posted"),
       error:err=>this.errMessage=err
