@@ -1,4 +1,6 @@
 import Worker from "../models/worker.model.js";
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 const WorkerController={
     createWorker: async(req,res)=>{
         try {
@@ -80,7 +82,7 @@ const WorkerController={
                     httpOnly: true,
                     secure: process.env.NODE_ENV === "production",
                 })
-                .json({ msg: "success!", worker: { firstName: worker.firstName, lastName: worker.lastName } });
+                .json({ msg: "success!", worker: { firstName: worker.firstName, lastName: worker.lastName, id: worker._id,acctype:worker.acctype },token:workerToken });
     
         } catch (err) {
             console.error(err);

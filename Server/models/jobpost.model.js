@@ -1,9 +1,8 @@
 import {model ,Schema} from 'mongoose'
 
 const donjobSchema= new Schema({
-    workerID:{
-        type:String,
-        required:[true,"Worker Id not Valid"]
+    worker:{
+        type:{ type: Schema.Types.ObjectId, ref: 'Worker' },
     },
     title:{
         type:String,
@@ -20,13 +19,6 @@ const donjobSchema= new Schema({
     img:{
         type:String
     },
-    workername:{
-        type:String,
-        required:[true,"Please Enter A valid worker name"],
-        minlength:[2,"The worker name must be at least 3 characters"],
-        maxlength:[255,"the worker name cannot be more than 255 caracters"]
-    }
-    
 },
 { timestamps: true }
 )

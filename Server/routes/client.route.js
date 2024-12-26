@@ -7,7 +7,7 @@ const router3=Router()
 router3.route("/client/register")
     .post(ClientController.register)
 
-router3.route("/login")
+router3.route("/client/login")
     .post(ClientController.login)
 
 router3.route("/allclient")

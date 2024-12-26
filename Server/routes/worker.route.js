@@ -6,7 +6,7 @@ const router4=Router()
 router4.route("/worker/register")
     .post(WorkerController.register)
 
-router4.route("/login")
+router4.route("/worker/login")
     .post(WorkerController.login)
 
 router4.route("/allworker")

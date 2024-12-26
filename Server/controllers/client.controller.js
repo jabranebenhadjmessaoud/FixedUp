@@ -83,7 +83,7 @@ const ClientController={
                     httpOnly: true,
                     secure: process.env.NODE_ENV === "production",
                 })
-                .json({ msg: "success!", client: { firstName: client.firstName, lastName: client.lastName, id: client._id},token:clientToken });
+                .json({ msg: "success!", client: { firstName: client.firstName, lastName: client.lastName, id: client._id,acctype:client.acctype},token:clientToken });
     
         } catch (err) {
             console.error(err);

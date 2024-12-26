@@ -11,10 +11,17 @@ export class ApiService {
   private baseurl="http://localhost:9999/api"
   constructor(private http:HttpClient) {}
   login(data:User):Observable <any>{
-    return this.http.post(this.baseurl+"/login",data).pipe(
+    return this.http.post(this.baseurl+"/client/login",data).pipe(
       catchError(this.handleError)
     )
   }
+
+  workerLogin(data:User):Observable <any>{
+    return this.http.post(this.baseurl+"/worker/login",data).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   clientRegister(data:User):Observable <any>{
     return this.http.post(this.baseurl+"/client/register",data).pipe(
       catchError(this.handleError2)
