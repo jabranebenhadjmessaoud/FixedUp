@@ -12,6 +12,9 @@ import { ElectricianslistComponent } from './electricianslist/electricianslist.c
 import { ConstructorslistComponent } from './constructorslist/constructorslist.component';
 import { CarpenterslistComponent } from './carpenterslist/carpenterslist.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+
 
 export const routes: Routes = [
 
@@ -27,7 +30,9 @@ export const routes: Routes = [
     {path:"electricians",component:ElectricianslistComponent},
     {path:"constructors",component:ConstructorslistComponent},
     {path:"carpenters",component:CarpenterslistComponent},
-    {path:"newpost",component:PostFormComponent}
+    {path:"newpost",component:PostFormComponent},
+    {path:"appointment/:id",component:AppointmentComponent},
+    {path:"editprofile",component:EditProfilComponent},
 ]
 
 

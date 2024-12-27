@@ -1,0 +1,75 @@
+<div class="p-5" style="height: 200vh;background-color:#14414a ;">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3">
+            <div class="card auth">
+                <div class="card-body auth-card">
+                    <div class="auth-avatar">
+                        <img src="/images/avatar-Photoroom.png" alt="user" class="user-image">
+                    </div>
+                    <form (ngSubmit)="updateProfile()">
+                        <div class="form-group">
+                            <label for="firstName">First Name : </label>
+                            <input type="text" name="firstName" class="form-control" placeholder="First Name" [(ngModel)]="data.firstName" >
+                            <p *ngIf="errMessage.firstName" class="error" style="color: red;">{{errMessage.firstName.message}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">last Name : </label>
+                            <input type="text" name="lastName" class="form-control" placeholder="Last Name" [(ngModel)]="data.lastName" >
+                            <p *ngIf="errMessage.lastName" class="error" style="color: red;">{{errMessage.lastName.message}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone : </label>
+                            <input type="text" name="phone" class="form-control" placeholder="Phone"[(ngModel)]="data.phone" >
+                            <p *ngIf="errMessage.phone" class="error" style="color: red;">{{errMessage.phone.message}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email : </label>
+                            <input type="text" name="email" class="form-control" placeholder="Email" [(ngModel)]="data.email">
+                            <p *ngIf="errMessage.email" class="error" style="color: red;" >{{errMessage.email.message}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address : </label>
+                            <input type="text" name="address" class="form-control" placeholder="adress" [(ngModel)]="data.address">
+                            <p *ngIf="errMessage.address" class="error" style="color: red;" >{{errMessage.address.message}}</p>
+                        </div>
+                        <div *ngIf="data.acctype=='Worker'" class="form-group">
+                            <label for="category">Category : </label>
+                            <select name="category" class="form-control" [(ngModel)]="data.category" >
+                                <option value="welders">Welders</option>
+                                <option value="electricians">Electricians</option>
+                                <option value="plumbers">Plumbers</option>
+                                <option value="constructors">Constructors</option>
+                                <option value="carpenters">Carpenters</option>
+                                <option value="mechanics">Mechanics</option>
+                            </select>
+                            <p *ngIf="errMessage.category" class="error" style="color: red;" >{{errMessage.category.message}}</p>
+                        </div>
+                        <div *ngIf="data.acctype=='Worker'" class="form-group">
+                            <label for="description"> Description : </label>
+                            <textarea name="description" class="form-control" [(ngModel)]="data.description" ></textarea>
+                            <p *ngIf="errMessage.description" class="error" style="color: red;" >{{errMessage.description.message}}</p>
+                        </div>
+                        <div *ngIf="data.acctype=='Worker'" class="form-group">
+                            <label for="skills"> Skills : </label>
+                            <textarea name="skills" class="form-control" [(ngModel)]="data.skills" ></textarea>
+                            <p *ngIf="errMessage.skills" class="error" style="color: red;" >{{errMessage.skills.message}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password : </label>
+                            <input type="password" name="password" class="form-control" placeholder="********" [(ngModel)]="data.password" >
+                            <p *ngIf="errMessage.password" class="error" style="color: red;" >{{errMessage.password.message}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password : </label>
+                            <input type="password" name="confirmPassword" class="form-control" placeholder="********" [(ngModel)]="data.confirmPassword" >
+                            <p *ngIf="errMessage.confirmPassword" class="error" style="color: red;" >{{errMessage.confirmPassword.message}}</p>
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-my" value="Edit Profile">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

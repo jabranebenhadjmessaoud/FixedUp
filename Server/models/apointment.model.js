@@ -1,17 +1,19 @@
 import {model ,Schema} from 'mongoose'
 
 const apointement= new Schema({
-    clientID:{
-        type:String,
-        required:[true,"Please Enter A valid Client ID"]
+    client:{
+        type:{ type: Schema.Types.ObjectId, ref: 'Client' }
         },
-    workerID:{
-        type:String,
-        required:[true,"Please Enter A valid Worker ID"]
+    worker:{
+        type:{ type: Schema.Types.ObjectId, ref: 'Worker' }
         },
     date:{
         type:Date,
         required:[true," Please enter a valid Date"]
+    },
+    description:{
+        type:String,
+        required:[true,"Please enter the job description"],
     },
     jobstatus:{
         type:String,

@@ -15,18 +15,30 @@ export class PostFormComponent {
   data:Post={}
   errMessage:any={}
   user_id : any| null=null
+  selectedFile: File | null = null;
+
   ngOnInit():void{
     this.user_id=localStorage.getItem("user_id")
   }
   constructor(private apiService:ApiService,private router:Router){}
-  addPost():void{
+  
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
 
-    this.data={...this.data,worker:this.user_id}
+  addPost():void{
+    this.data={...this.data,worker:this.user_id,img:this.selectedFile?.name}
     this.apiService.createPost(this.data).subscribe({
       next:res=>{
-        this.apiService.uploadImage(this.data.img!)
-        console.log("posted")},
+        if (this.selectedFile) {
+          this.apiService.uploadImage(this.selectedFile).subscribe({
+            next: res => console.log("Image uploaded"),
+            error: err => this.errMessage = err
+          });
+        }
+        console.log("posted")
+      },
       error:err=>this.errMessage=err
     })
   }
-}
+}   

@@ -10,6 +10,9 @@ router3.route("/client/register")
 router3.route("/client/login")
     .post(ClientController.login)
 
+router3.route("/client/logout")
+    .get(ClientController.logout)
+
 router3.route("/allclient")
     .get(ClientController.retrieveAll)
     .post(ClientController.createClient)

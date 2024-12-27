@@ -9,6 +9,9 @@ router4.route("/worker/register")
 router4.route("/worker/login")
     .post(WorkerController.login)
 
+router4.route("/worker/logout")
+    .get(WorkerController.logout)
+
 router4.route("/allworker")
     .get(WorkerController.retrieveAll)
 
