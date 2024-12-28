@@ -15,6 +15,7 @@ const apointement= new Schema({
     },
     jobstatus:{
         type:String,
+        default:"Pending",
         validate:{
                     validator:(t)=>["In Progress","Pending","Done"].includes(t),
                     message:(props)=>props.value+ " is not valid Job Status"
