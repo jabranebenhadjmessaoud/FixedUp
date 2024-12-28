@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Route, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
  import { MatIconModule } from '@angular/material/icon';
  import { MatToolbarModule } from '@angular/material/toolbar';
@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
  import { MatInputModule } from '@angular/material/input';
  import { MatFormFieldModule } from '@angular/material/form-field';
  import { CommonModule } from '@angular/common';
+import { ApiService } from './api.service';
 
  
 @Component({
@@ -19,4 +20,41 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  acctype:string|null=null
+
+  constructor(private apiService:ApiService,private router:Router){}
+
+  ngOnInit():void{
+    this.acctype=localStorage.getItem("acctype")
+  }
+
+  onLogout(): void {
+    if(this.acctype=="Worker"){
+      this.apiService.logoutWorker().subscribe({
+        next: () => {
+          console.log('User logged out successfully');
+          localStorage.removeItem('user_id');
+          localStorage.removeItem('token');
+          localStorage.removeItem('acctype');
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error('Error during logout:', err);
+        }
+      });
+    }else{
+      this.apiService.logoutClient().subscribe({
+        next: () => {
+          console.log('User logged out successfully');
+          localStorage.removeItem('user_id');
+          localStorage.removeItem('token');
+          localStorage.removeItem('acctype');
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error('Error during logout:', err);
+        }
+      });
+    }
+  }
 }

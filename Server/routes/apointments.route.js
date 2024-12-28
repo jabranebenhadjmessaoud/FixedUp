@@ -1,10 +1,10 @@
+import authenticate from "../config/jwt.config.js";
 import ApointementController from "../controllers/apointment.controller.js";
 import { Router } from "express";
 
 const router2=Router()
 
-router2.route("/createapointment")
-    .post(ApointementController.create)
+router2.post("/createapointment",authenticate,ApointementController.create)
 
 router2.route("/allapointments")
     .get(ApointementController.retrieveAll)

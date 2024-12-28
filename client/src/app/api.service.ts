@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { User } from './user';
 import { Post } from './post';
+import { Appointment } from './appointment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   private baseurl="http://localhost:9999/api"
+  
   constructor(private http:HttpClient) {}
   login(data:User):Observable <any>{
     return this.http.post(this.baseurl+"/client/login",data).pipe(
@@ -34,6 +36,16 @@ export class ApiService {
     )
   }
 
+  addRate(data:object):Observable<any>{
+    return this.http.post(this.baseurl+"/addrate",data).pipe(
+      catchError(this.handleError2)
+    )
+  }
+
+  getAllRates():Observable<any>{
+    return this.http.get(this.baseurl+"/allrates")
+  }
+
   WorkerRegister(data:User):Observable <any>{
     return this.http.post(this.baseurl+"/worker/register",data).pipe(
       catchError(this.handleError2)
@@ -51,14 +63,56 @@ export class ApiService {
     console.error('an error occurred!', err.error.msg)
     return throwError(()=>err.error)
   }
+
   private handleError2(err: any): Observable<any> {
     console.error('an error occurred!', err)
     return throwError(()=>err.error.errors)
   }
+
   getallworkers():Observable<any>{
     return this.http.get(this.baseurl+"/allworker")
   }
-  getoneworker(workerid:string): Observable<any>{
-    return this.http.get(`${this.baseurl}/worker/${workerid}`)
+
+  getoneworker(worker_id:string):Observable<any>{
+    return this.http.get(this.baseurl+"/worker/"+worker_id)
+  }
+
+  getOneClient(client_id:string):Observable<any>{
+    return this.http.get(this.baseurl+"/client/"+client_id)
+  }
+
+  UpdateClient(data:User):Observable<any>{
+    return this.http.put(this.baseurl+"/client/"+data._id,data).pipe(
+      catchError(this.handleError2)
+    )
+  }
+  UpdateWorker(data:User):Observable<any>{
+    return this.http.put(this.baseurl+"/worker/"+data._id,data).pipe(
+      catchError(this.handleError2)
+    )
+  }
+
+  createAppointment(data:Appointment):Observable<any>{
+    return this.http.post(this.baseurl+"/createapointment",data).pipe(
+      catchError(this.handleError2)
+    )
+  }
+
+  logoutClient(): Observable<any> {
+    return this.http.get(this.baseurl+"/client/logout").pipe(
+      catchError((err) => {
+        console.error('Error during logout:', err);
+        return throwError(() => err);
+      })
+    );
+  }
+
+  logoutWorker(): Observable<any> {
+    return this.http.get(this.baseurl+"/worker/logout").pipe(
+      catchError((err) => {
+        console.error('Error during logout:', err);
+        return throwError(() => err);
+      })
+    );
   }
 }
