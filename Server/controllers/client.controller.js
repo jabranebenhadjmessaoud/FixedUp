@@ -132,10 +132,16 @@ const ClientController={
     //         })
     //         .catch(err => res.status(500).json(err));
     //     },
-    logout: (req, res) => {
-        res.clearCookie('clienttoken');
-        res.sendStatus(200);
-    }
+    logout :async (req, res) => {
+        try {
+            res.clearCookie('clienttoken') 
+            res.status(200)
+            }
+        catch (err) {
+            console.log(err)
+            res.status(400).json(err)
+        }
+    },
 }
 
 export default ClientController

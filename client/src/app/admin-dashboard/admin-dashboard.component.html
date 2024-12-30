@@ -25,6 +25,7 @@
                             <td> {{worker.createdAt?worker.createdAt:"Joining date is not available"}} </td>
                             <td> if worker.rating["rating"] == None 0 else worker.rating</td>
                             <td>{{worker.address}} </td>
+                            <td>{{worker.category}}</td>
                             <td> <a class="btn btn-danger" (click)="deleteworker(worker._id)" >delete</a></td>
                             </tr>
                         </tbody>

@@ -111,10 +111,16 @@ const WorkerController={
             console.log(err)
         }
     },
-    logout: (req, res) => {
-        res.clearCookie('workertoken');
-        res.sendStatus(200);
-    }
+    logout :async (req, res) => {
+        try {
+            res.clearCookie('workertoken') 
+            res.status(200).json({action:"logged out"})
+            }
+        catch (err) {
+            console.log(err)
+            res.status(400).json(err)
+        }
+    },
 }
 
 export default WorkerController
