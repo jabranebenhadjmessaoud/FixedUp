@@ -38,13 +38,16 @@ export class EditProfilComponent {
     }
   }
   updateProfile():void{
-    if(this.acctype=="client"){
-      this.apiService.UpdateClient(this.data).subscribe({
+    if(this.acctype=="Client"){
+      const data2={_id:this.data._id,firstName:this.data.firstName,lastName:this.data.lastName,phone:this.data.phone,email:this.data.email,address:this.data.address}
+      this.apiService.UpdateClient(data2).subscribe({
         next:res=>console.log("updated client"),
         error:err=>this.errMessage=err
       })
-    }else{
-      this.apiService.UpdateWorker(this.data).subscribe({
+    }
+    else{
+      const data2={_id:this.data._id,firstName:this.data.firstName,lastName:this.data.lastName,phone:this.data.phone,email:this.data.email,address:this.data.address,category:this.data.category,description:this.data.description,skills:this.data.skills}
+      this.apiService.UpdateWorker(data2).subscribe({
         next:res=>console.log("updated worker"),
         error:err=>this.errMessage=err
       })

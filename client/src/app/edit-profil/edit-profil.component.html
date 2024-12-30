@@ -54,16 +54,6 @@
                             <textarea name="skills" class="form-control" [(ngModel)]="data.skills" ></textarea>
                             <p *ngIf="errMessage.skills" class="error" style="color: red;" >{{errMessage.skills.message}}</p>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password : </label>
-                            <input type="password" name="password" class="form-control" placeholder="********" [(ngModel)]="data.password" >
-                            <p *ngIf="errMessage.password" class="error" style="color: red;" >{{errMessage.password.message}}</p>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirm Password : </label>
-                            <input type="password" name="confirmPassword" class="form-control" placeholder="********" [(ngModel)]="data.confirmPassword" >
-                            <p *ngIf="errMessage.confirmPassword" class="error" style="color: red;" >{{errMessage.confirmPassword.message}}</p>
-                        </div>
                         <div class="text-center">
                             <input type="submit" class="btn btn-my" value="Edit Profile">
                         </div>

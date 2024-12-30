@@ -17,7 +17,7 @@ router4.route("/allworker")
 
 router4.route("/worker/:id")
     .get(WorkerController.retrieveOne)
-    .put(WorkerController.update)
+    .patch(WorkerController.update)
     .delete(WorkerController.DeleteOne)
 
 

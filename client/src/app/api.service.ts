@@ -106,12 +106,12 @@ export class ApiService {
   }
 
   UpdateClient(data:User):Observable<any>{
-    return this.http.put(this.baseurl+"/client/"+data._id,data).pipe(
+    return this.http.patch(this.baseurl+"/client/"+data._id,data).pipe(
       catchError(this.handleError2)
     )
   }
   UpdateWorker(data:User):Observable<any>{
-    return this.http.put(this.baseurl+"/worker/"+data._id,data).pipe(
+    return this.http.patch(this.baseurl+"/worker/"+data._id,data).pipe(
       catchError(this.handleError2)
     )
   }
