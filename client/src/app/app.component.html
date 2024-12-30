@@ -14,7 +14,12 @@
                 <mat-icon>category</mat-icon>
                 <span>Categories</span>
             </button>
-            
+
+            <button *ngIf="acctype=='Client'" mat-fab extended routerLink="/clientprofile" class="nav-button">
+                <mat-icon>person</mat-icon>
+                <span>Profile</span>
+            </button>
+
             <button *ngIf="!acctype" mat-fab extended routerLink="/login" class="nav-button">
                 <mat-icon>login</mat-icon>
                 <span>Login</span>

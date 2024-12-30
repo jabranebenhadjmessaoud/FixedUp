@@ -41,14 +41,14 @@ export class EditProfilComponent {
     if(this.acctype=="Client"){
       const data2={_id:this.data._id,firstName:this.data.firstName,lastName:this.data.lastName,phone:this.data.phone,email:this.data.email,address:this.data.address}
       this.apiService.UpdateClient(data2).subscribe({
-        next:res=>console.log("updated client"),
+        next:res=>this.router.navigate(["/clientprofile"]),
         error:err=>this.errMessage=err
       })
     }
     else{
       const data2={_id:this.data._id,firstName:this.data.firstName,lastName:this.data.lastName,phone:this.data.phone,email:this.data.email,address:this.data.address,category:this.data.category,description:this.data.description,skills:this.data.skills}
       this.apiService.UpdateWorker(data2).subscribe({
-        next:res=>console.log("updated worker"),
+        next:res=>this.router.navigate(["/workerprofile/"+localStorage.getItem("user_id")]),
         error:err=>this.errMessage=err
       })
     }

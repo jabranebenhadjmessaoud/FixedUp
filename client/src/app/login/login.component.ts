@@ -25,6 +25,9 @@ export class LoginComponent {
         // console.log(res)
         verif=true
         console.log(verif)
+        if(localStorage.getItem('acctype')=='Client'){
+          this.router.navigate(['/categories'])
+        }
       },
       error:err=>this.errMessage=err
     })
@@ -38,6 +41,7 @@ export class LoginComponent {
           console.log(localStorage.getItem("acctype"))
           console.log("worker login")
           console.log(res)
+          this.router.navigate(['/workerprofile/'+localStorage.getItem('user_id')])
         },
         error:err=>this.errMessage=err
       })
