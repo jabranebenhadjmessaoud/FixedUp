@@ -1,12 +1,46 @@
-<p>electricianslist works!</p>
-<h2>THis is the list of the electricians</h2>
-<div *ngIf="electricianslist.length">
+<div class="electricians-page">
+    <div class="container">
+        <header class="page-header">
+            <h1>Available electricians</h1>
+            <p class="subtitle">Find skilled professionals for your automotive needs</p>
+        </header>
 
-    <div class="card" *ngFor="let worker of electricianslist">  
-        <div class="card-header"><h3>{{worker.firstname}} {{worker.lastname}}</h3> </div>
-        <div class="card-body"><p>{{worker.email}}</p> <p>{{worker.address}}</p></div>
-        <div class="card-footer">{{worker.category}}</div>
-        <a href="/workerprofile/{{worker._id}}">Show</a>
+        <div class="electricians-grid" *ngIf="electricianslist.length">
+            <div class="worker-card" *ngFor="let worker of electricianslist">
+                <div class="worker-image">
+                    <img src="images/electrician_avatar.png" alt="Electrician">
+                </div>
+                
+                <div class="worker-info">
+                    <h3 class="worker-name">{{worker.firstname}} {{worker.lastname}}</h3>
+                    
+                    <div class="info-item">
+                        <i class="material-icons">email</i>
+                        <span>{{worker.email}}</span>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="material-icons">location_on</i>
+                        <span>{{worker.address}}</span>
+                    </div>
+                    
+                    <div class="worker-category">
+                        <span class="category-badge">{{worker.category}}</span>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button routerLink="/workerprofile/{{worker._id}}"  class="view-profile-btn">
+                        View Profile
+                        <i class="material-icons">arrow_forward</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="empty-state" *ngIf="!electricianslist.length">
+            <i class="material-icons">build</i>
+            <p>No electricians available at the moment</p>
+        </div>
     </div>
-
 </div>

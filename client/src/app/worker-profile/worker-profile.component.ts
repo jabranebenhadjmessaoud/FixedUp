@@ -17,6 +17,8 @@ export class WorkerProfileComponent {
   client_id:string|null=null
   data:any
   workerid:string|null=null
+  alljobs:any 
+  workerjobs:any
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
@@ -30,6 +32,17 @@ export class WorkerProfileComponent {
         error: err => console.error("Error fetching item:", err)
       })
     }
+    if (this.workerid) {
+      this.apiService.getalljobs().subscribe({
+        next: data => {this.alljobs = data;
+          console.log("all jobs list");
+                      console.log(this.alljobs)
+                      // this.workerjobs=this.alljobs.filter((job: string | any[]) => job. > 6)
+                      ;;},
+        error: err => console.error("Error fetching item:", err)
+      })
+    }
+
   }
 
   rating():void{

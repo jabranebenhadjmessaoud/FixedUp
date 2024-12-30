@@ -1,96 +1,85 @@
-<div class="allpage">
-    <div class="container  mb-4 p-4 d-flex justify-content-center">
-        <div class="card p-4">
-            <div class="image d-flex flex-column justify-content-center align-items-center">
-                <button class="btn btn-secondary">
-                <img src="/images/worker.png" height="100" width="100" />
-                </button>
-                <span class="name mt-3">Worker Name : {{workerdetails.firstName}}</span>
-            
-                <div
-                class="d-flex flex-row justify-content-center align-items-center gap-2"
-                >
-                <span class="number">Email : {{workerdetails.email}} <i class="material-icons">alternate_email</i></span>
-                <span><i class="fa fa-copy"></i></span>
-                </div>
-                <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-                <span class="number">Phone Number : {{workerdetails.phone}} <i class="material-icons">phone</i></span>
-                </div>
-                
-                <div class="text mt-3">
-                    <span>
-                        Address : {{workerdetails.address}} <i class="material-icons">location_on</i>
-                    </span>
-                </div>
-                <div class="text mt-3">
-                    <span>
-                        Descripton : {{workerdetails.description}}
-                    </span>
-                </div>
-                <div class="text mt-3">
-                    <span>
-                        Skills : {{workerdetails.skills}}
-                    </span>
-                </div>
-                <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-                    <span class="number">Rating: <i class="material-icons">star_border</i></span>
+<div class="profile-page">
+    <div class="container mb-4 p-4 d-flex justify-content-center">
+        <div class="card">
+            <div class="profile-content">
+                <div class="profile-header">
+                    <div class="profile-image">
+                        <img src="/images/worker.png" alt="Worker Profile" />
                     </div>
-                <div class="d-flex gap-2">
-                    <mat-card class="onepost">
-                        <mat-card-header> 
-                            <mat-card-title>Job Title</mat-card-title> 
-                            <mat-card-subtitle>  
-                                Brief  
-                            </mat-card-subtitle> 
-                        </mat-card-header>
-                        <mat-card-content> 
-                            <p>this is a description about the done job</p> 
-                    
-                        </mat-card-content> 
-                        <mat-card-actions> 
-                            <button mat-button style= 
-                                    "background-color:rgb(3, 179, 233);  
-                                    color:white">  
-                                Edit Post  
-                            </button> 
-                        </mat-card-actions>  
-                    </mat-card>
-                    <mat-card class="onepost">
-                        <mat-card-header> 
-                            <mat-card-title>Job Title</mat-card-title> 
-                            <mat-card-subtitle>  
-                                Brief                            </mat-card-subtitle> 
-                        </mat-card-header>
-                        <mat-card-content> 
-                            <p> this is a description about the done job </p>
-                                
-                    
-                        </mat-card-content> 
-                        <mat-card-actions> 
-                            <button mat-button style= 
-                                    "background-color:rgb(3, 179, 233);  
-                                    color:white">  
-                                Edit Post  
-                            </button> 
-                        </mat-card-actions>  
-                    </mat-card>
+                    <h2 class="profile-name">{{workerdetails.firstName}}</h2>
                 </div>
-                <div class="d-flex mt-2">
-                    <button class="btn1 btn-dark" routerLink="/editprofile" >Edit Profile</button>
+
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="material-icons">alternate_email</i>
+                        <span>{{workerdetails.email}}</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="material-icons">phone</i>
+                        <span>{{workerdetails.phone}}</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="material-icons">location_on</i>
+                        <span>{{workerdetails.address}}</span>
+                    </div>
                 </div>
-                <div>
-                    <form (ngSubmit)="rating()">
+
+                <div class="profile-details">
+                    <div class="detail-section">
+                        <h3>Description</h3>
+                        <p>{{workerdetails.description}}</p>
+                    </div>
+                    <div class="detail-section">
+                        <h3>Skills</h3>
+                        <p>{{workerdetails.skills}}</p>
+                    </div>
+                </div>
+
+                <div class="rating-section">
+                    <h3>Rating <i class="material-icons">star_border</i></h3>
+                    <form (ngSubmit)="rating()" class="rating-form">
                         <div class="form-group">
-                            <label for="rate">Rate him</label>
-                            <input type="number" name="rate" class="form-control" [(ngModel)]="data.rate" >
+                            <input type="number" name="rate" class="rating-input" placeholder="Rate this worker" [(ngModel)]="data.rate">
                         </div>
-                        <button class="btn1 btn-dark">Rate</button>
+                        <button class="submit-rating">Submit Rating</button>
                     </form>
                 </div>
-                <div class="px-2 rounded mt-4 date">
-                    <span class="join">Joined May,2021</span>
+
+                <div class="portfolio-section">
+                    <h3>Recent Work</h3>
+                    <div class="portfolio-grid">
+                        <mat-card class="portfolio-item">
+                            <mat-card-header> 
+                                <mat-card-title>Job Title</mat-card-title> 
+                                <mat-card-subtitle>Brief</mat-card-subtitle> 
+                            </mat-card-header>
+                            <mat-card-content> 
+                                <p>this is a description about the done job</p> 
+                            </mat-card-content> 
+                            <mat-card-actions> 
+                                <button mat-button class="edit-button">Edit Post</button> 
+                            </mat-card-actions>  
+                        </mat-card>
+
+                        <mat-card class="portfolio-item">
+                            <mat-card-header> 
+                                <mat-card-title>Job Title</mat-card-title> 
+                                <mat-card-subtitle>Brief</mat-card-subtitle> 
+                            </mat-card-header>
+                            <mat-card-content> 
+                                <p>this is a description about the done job</p> 
+                            </mat-card-content> 
+                            <mat-card-actions> 
+                                <button mat-button class="edit-button">Edit Post</button> 
+                            </mat-card-actions>  
+                        </mat-card>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="edit-profile-btn" routerLink="/editprofile">Edit Profile</button>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </div>

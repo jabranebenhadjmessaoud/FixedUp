@@ -1,8 +1,6 @@
-
-<div class="d-flex flex-column gap-5" style="background-color: #DBC1A0;">
-    <div class="line" id="Home">
-        <div class="side1">
-            <h1 style="font-size: 100px;">Fixed UP</h1>
+<div class="landing-container">
+    <div class="hero-section" id="Home">
+        <div class="hero-content">
             <div class="wave"> 
                 <span style="--i:1">F</span>
                 <span style="--i:2">I</span>
@@ -12,83 +10,86 @@
                 <span style="--i:6">U</span>
                 <span style="--i:7">P</span>
             </div>
-            <p style="text-align: center;">Always there for you</p>
+            <p class="hero-tagline">Always there for you</p>
+            <button class="cta-button" routerLink="/register">Join Now</button>
         </div>
-        <div class="side2" >
-            <img src="/images/tools.png"width="700">
+        <div class="hero-image">
+            <img src="/images/repair-tools.png" alt="Tools illustration">
         </div>
     </div>
 
-    <section class="about" id="My Projects">
+    <section class="about-section" id="My Projects">
         <div class="content">
-            <div class="title">
-                <span style="color: rgb(17, 14, 14);font-size: 60px;">ABOUT US</span>
-            </div>
-            <div class="boxes">
-                <div class="box">
-                    <p>
-                        Our web application connects homeowners and businesses with skilled professionals (plumbers, electricians, carpenters, technicians ...) when they need them most. Book an expert instantly to come to your location, fix your issue, and get the job done all in a seamless, transparent experience. Whether it’s an urgent repair or a planned service, Fixed Up gives you fast, reliable access to the best local professionals.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="about" id="My Projects" style="height: auto;">
-        <div class="content">
-            <div class="title">
-                <span style="color: rgb(17, 14, 14);font-size: 60px;">CATEGORIES</span>
-            </div>
-            <div class="images d-flex justify-content-between p-5">
-                <div class="d-flex flex-column gap-3">
-                    <h3 style="text-align: center;">Welder</h3>
-                    <img src="/images/Welders.png" alt="welder" style="width: 200px;height: 200px;" routerLink="/welders">
-                    <h3 style="text-align: center;">Constractor</h3>
-                    <img src="/images/Constructors.png" alt="constractor" style="height: 200px;" routerLink="/constructors">
-                </div>
-                <div class="d-flex flex-column gap-3">
-                    <h3 style="text-align: center;">Electrician</h3>
-                    <img src="/images/Electricians.png" alt="electrician" style="height: 230px;width: 400px;" routerLink="/electricians">
-                    <h3 style="text-align: center;">Carpenter</h3>
-                    <img src="/images/Carpenters.png" alt="carpenter" style="width: 400px;height: 200px;" routerLink="/carpenters">
-                </div>
-                <div class="d-flex flex-column gap-3">
-                    <h3 style="text-align: center;">Plumber</h3>
-                    <img src="/images/Plumbers.png" alt="plumber" style="height: 230px;width: 400px;" routerLink="/plumbers">
-                    <h3 style="text-align: center;">Mechanics</h3>
-                    <img src="/images/Mechanicss.png" alt="mechanics" style="height: 200px;width: 400px;" routerLink="/mechanics">
+            <h2 class="section-title">ABOUT US</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <p>Our web application connects homeowners and businesses with skilled professionals (plumbers, electricians, carpenters, technicians ...) when they need them most. Book an expert instantly to come to your location, fix your issue, and get the job done all in a seamless, transparent experience. Whether it's an urgent repair or a planned service, Fixed Up gives you fast, reliable access to the best local professionals.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer section -->
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="index.html"><img src="/images/fixed-up-high-resolution-logo.png" alt="fixedUp" class="img-fluid logo-footer" style="border-radius: 50%;"></a>
+    <section class="categories-section">
+        <h2 class="section-title">CATEGORIES</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <h3>Welder</h3>
+                <div class="image-container">
+                    <img src="/images/welder_avatar.png" alt="welder" routerLink="/welders">
                 </div>
-                <div class="col-md-1">
+            </div>
+            <div class="category-card">
+                <h3>Electrician</h3>
+                <div class="image-container">
+                    <img src="/images/electrician_avatar.png" alt="electrician" routerLink="/electricians">
                 </div>
-                <div class="col-md-3">
-                    <div class="social-links">
-                        <h2>Follow Us</h2>
-                        <div class="social-icons">
-                            <li><a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
-                            <li><a href=""><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                            <li><a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a></li>
-                        </div>
-                    </div>  
+            </div>
+            <div class="category-card">
+                <h3>Plumber</h3>
+                <div class="image-container">
+                    <img src="/images/plumber_avatar.png" alt="plumber" routerLink="/plumbers">
                 </div>
-                <div class="col-md-3">
-                    <div class="address">
-                        <h2>Address</h2>
-                        <div class="address-links">
-                            <li><i class="fa-solid fa-location-dot"></i>Tounis-Lac I</li>
-                            <li><a href=""><i class="fa-solid fa-phone"></i> +216 25505089</a></li>
-                        </div>
-                    </div>
-                </div>          
+            </div>
+            <div class="category-card">
+                <h3>Contractor</h3>
+                <div class="image-container">
+                    <img src="/images/contractor_avatar.png" alt="contractor" routerLink="/constructors">
+                </div>
+            </div>
+            <div class="category-card">
+                <h3>Carpenter</h3>
+                <div class="image-container">
+                    <img src="/images/carpenter_avatar.png" alt="carpenter" routerLink="/carpenters">
+                </div>
+            </div>
+            <div class="category-card">
+                <h3>Mechanic</h3>
+                <div class="image-container">
+                    <img src="/images/mechanic_avatar.png" alt="mechanics" routerLink="/mechanics">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="/images/fixed-up-high-resolution-logo.png" alt="fixedUp" class="footer-logo">
+            </div>
+            <div class="footer-social">
+                <h2>Follow Us</h2>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+                    <a href=""><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href=""><i class="fa-brands fa-linkedin-in"></i> Linkedin</a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h2>Address</h2>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> Tounis-Lac I</p>
+                    <p><i class="fa-solid fa-phone"></i> +216 25505089</p>
+                </div>
             </div>
         </div>
     </footer>

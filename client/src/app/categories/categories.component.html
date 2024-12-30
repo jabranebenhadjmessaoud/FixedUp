@@ -1,191 +1,98 @@
-
-
-    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center gap-2 ">
-        <div class="card p-4">
-        <div class="image d-flex flex-column justify-content-center align-items-center">
-            <button class="btn btn-secondary" routerLink="/carpenters" >
-            <img src="images/Carpenters.png" height="100" width="100" />
-            </button>
-            <span class="name mt-3">Carpenters</span>
-            <div
-            class="d-flex flex-row justify-content-center align-items-center gap-2"
-            >
-            <span><i class="fa fa-copy"></i></span>
-            </div>
-            <div
-            class="d-flex flex-row justify-content-center align-items-center mt-3"
-            >
-            <span class="number">{{carpenterslist.length}} <span class="follow">Carpenters</span></span>
-            </div>
-            <div class="d-flex mt-2">
-            <button class="btn1 btn-dark">Edit Profile</button>
-            
-            </div>
-            <div class="text mt-3">
-            <span
-                >Carpenters List
-            </span>
-            </div>
-            <div class="px-2 rounded mt-4 date">
-            <span class="join">Joined May,2021</span>
-            </div>
-        </div>
-        </div>
-        <div class="card p-4">
-            <div
-                class="image d-flex flex-column justify-content-center align-items-center"
-            >
-                <button class="btn btn-secondary" routerLink="/constructors">
-                <img src="/images/Constructors.png" height="100" width="100" />
+<div class="categories-wrapper">
+    <div class="categories-grid">
+        <!-- Carpenters Card -->
+        <div class="category-card">
+            <div class="card-content">
+                <button class="icon-button" routerLink="/carpenters">
+                    <img src="images/carpenter_avatar.png" alt="Carpenters" />
                 </button>
-                <span class="name mt-3">Constructors</span>
-                <div
-                class="d-flex flex-row justify-content-center align-items-center gap-2"
-                >
-                <span><i class="fa fa-copy"></i></span>
+                <h3 class="category-title">Carpenters</h3>
+                <div class="category-count">
+                    <span class="count-number">{{carpenterslist.length}}</span>
+                    <span class="count-label">Available Carpenters</span>
                 </div>
-                <div
-                class="d-flex flex-row justify-content-center align-items-center mt-3"
-                >
-                <span class="number">{{constructorslist.length}} <span class="follow">Constructors</span></span>
-                </div>
-                <div class="d-flex mt-2">
-                <button class="btn1 btn-dark">Edit Profile</button>
-                </div>
-                <div class="text mt-3">
-                <span
-                    >Constructors List
-                </span>
-                </div>
-                <div class="px-2 rounded mt-4 date">
-                <span class="join">Joined May,2021</span>
-                </div>
+                <button class="action-button" routerLink="/carpenters">View Details</button>
             </div>
-            </div>
-            <div class="card p-4">
-                <div
-                    class="image d-flex flex-column justify-content-center align-items-center"
-                >
-                    <button class="btn btn-secondary" routerLink="/electricians">
-                    <img src="/images/Electricians.png" height="100" width="100" />
-                    </button>
-                    <span class="name mt-3">Electricians</span>
-                    <div
-                    class="d-flex flex-row justify-content-center align-items-center gap-2"
-                    >
+        </div>
 
-                    </div>
-                    <div
-                    class="d-flex flex-row justify-content-center align-items-center mt-3"
-                    >
-                    <span class="number">{{electricianslist.length}} <span class="follow">Electricians</span></span>
-                    </div>
-                    <div class="d-flex mt-2">
-                    <button class="btn1 btn-dark">Edit Profile</button>
-                    </div>
-                    <div class="text mt-3">
-                    <span
-                        >Electricians List
-                    </span>
-                    </div>
-                    <div class="px-2 rounded mt-4 date">
-                    <span class="join">Joined May,2021</span>
-                    </div>
+        <!-- Constructors Card -->
+        <div class="category-card">
+            <div class="card-content">
+                <button class="icon-button" routerLink="/constructors">
+                    <img src="/images/contractor_avatar.png" alt="Constructors" />
+                </button>
+                <h3 class="category-title">Constructors</h3>
+                <div class="category-count">
+                    <span class="count-number">{{constructorslist.length}}</span>
+                    <span class="count-label">Available Constructors</span>
                 </div>
+                <button class="action-button" routerLink="/constructors">View Details</button>
+                
+            </div>
+        </div>
+
+        <!-- Electricians Card -->
+        <div class="category-card">
+            <div class="card-content">
+                <button class="icon-button" routerLink="/electricians">
+                    <img src="/images/electrician_avatar.png" alt="Electricians" />
+                </button>
+                <h3 class="category-title">Electricians</h3>
+                <div class="category-count">
+                    <span class="count-number">{{electricianslist.length}}</span>
+                    <span class="count-label">Available Electricians</span>
                 </div>
-                <div class="card p-4">
-                    <div
-                        class="image d-flex flex-column justify-content-center align-items-center"
-                    >
-                        <button class="btn btn-secondary" routerLink="/mechanics">
-                        <img src="/images/Mechanicss.png" height="100" width="100" />
-                        </button>
-                        <span class="name mt-3">Mechanics</span>
-                        <div
-                        class="d-flex flex-row justify-content-center align-items-center gap-2"
-                        >
-                        
-                        <span><i class="fa fa-copy"></i></span>
-                        </div>
-                        <div
-                        class="d-flex flex-row justify-content-center align-items-center mt-3"
-                        >
-                        <span class="number">{{mechanicslist.length}} <span class="follow">Mechanics</span></span>
-                        </div>
-                        <div class="d-flex mt-2">
-                        <button class="btn1 btn-dark">Edit Profile</button>
-                        </div>
-                        <div class="text mt-3">
-                        <span
-                            >Mechanics List 
-                        </span>
-                        </div>
-                        <div class="px-2 rounded mt-4 date">
-                        <span class="join">Joined May,2021</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="card p-4">
-                        <div
-                            class="image d-flex flex-column justify-content-center align-items-center"
-                        >
-                            <button class="btn btn-secondary" routerLink="/plumbers">
-                            <img src="images/Plumbers.png" height="100" width="100" />
-                            </button>
-                            <span class="name mt-3">Plumbers</span>
-                            <div
-                            class="d-flex flex-row justify-content-center align-items-center gap-2"
-                            >
-                            </div>
-                            <div
-                            class="d-flex flex-row justify-content-center align-items-center mt-3"
-                            >
-                            <span class="number">{{plumberslist.length}} <span class="follow">Plumbers</span></span>
-                            </div>
-                            <div class="d-flex mt-2">
-                            <button class="btn1 btn-dark">Edit Profile</button>
-                            </div>
-                            <div class="text mt-3">
-                            <span
-                                >Plumbers List
-                            </span>
-                            </div>
-                            <div class="px-2 rounded mt-4 date">
-                            <span class="join">Joined May,2021</span>
-                            </div>
-                        </div>
-                        </div>
-                        <div class="card p-4">
-                            <div
-                                class="image d-flex flex-column justify-content-center align-items-center"
-                            >
-                                <button class="btn btn-secondary" routerLink="/welders">
-                                <img src="images/Welders.png" height="100" width="100" />
-                                </button>
-                                <span class="name mt-3">Welders</span>
-                                
-                                <div
-                                class="d-flex flex-row justify-content-center align-items-center gap-2"
-                                >
-                                </div>
-                                <div
-                                class="d-flex flex-row justify-content-center align-items-center mt-3"
-                                >
-                                <span class="number">{{welderslist.length}} <span class="follow">welders</span></span>
-                                </div>
-                                <div class="d-flex mt-2">
-                                <button class="btn1 btn-dark">Edit Profile</button>
-                                </div>
-                                <div class="text mt-3">
-                                <span
-                                    >Welders List
-                                </span>
-                                </div>
-                                <div class="px-2 rounded mt-4 date">
-                                <span class="join">Joined May,2021</span>
-                                </div>
-                            </div>
-                            </div>
+                <button class="action-button" routerLink="/electricians">View Details</button>
+                
+            </div>
+        </div>
+
+        <!-- Mechanics Card -->
+        <div class="category-card">
+            <div class="card-content">
+                <button class="icon-button" routerLink="/mechanics">
+                    <img src="/images/mechanic_avatar.png" alt="Mechanics" />
+                </button>
+                <h3 class="category-title">Mechanics</h3>
+                <div class="category-count">
+                    <span class="count-number">{{mechanicslist.length}}</span>
+                    <span class="count-label">Available Mechanics</span>
+                </div>
+                <button class="action-button" routerLink="/mechanics">View Details</button>
+                
+            </div>
+        </div>
+
+        <!-- Plumbers Card -->
+        <div class="category-card">
+            <div class="card-content">
+                <button class="icon-button" routerLink="/plumbers">
+                    <img src="images/plumber_avatar.png" alt="Plumbers" />
+                </button>
+                <h3 class="category-title">Plumbers</h3>
+                <div class="category-count">
+                    <span class="count-number">{{plumberslist.length}}</span>
+                    <span class="count-label">Available Plumbers</span>
+                </div>
+                <button class="action-button"  routerLink="/plumbers">View Details</button>
+                
+            </div>
+        </div>
+
+        <!-- Welders Card -->
+        <div class="category-card">
+            <div class="card-content">
+                <button class="icon-button" routerLink="/welders">
+                    <img src="images/welder_avatar.png" alt="Welders" />
+                </button>
+                <h3 class="category-title">Welders</h3>
+                <div class="category-count">
+                    <span class="count-number">{{welderslist.length}}</span>
+                    <span class="count-label">Available Welders</span>
+                </div>
+                <button class="action-button" routerLink="/welders">View Details</button>
+                
+            </div>
+        </div>
     </div>
-
-
+</div>

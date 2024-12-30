@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-electricianslist',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './electricianslist.component.html',
   styleUrl: './electricianslist.component.css'
 })

@@ -67,16 +67,21 @@ export class ApiService {
   private handleError2(err: any): Observable<any> {
     console.error('an error occurred!', err)
     return throwError(()=>err.error.errors)
-  }
+  } 
 
   getallworkers():Observable<any>{
     return this.http.get(this.baseurl+"/allworker")
+  }
+  getalljobs():Observable<any>{
+    return this.http.get(this.baseurl+"/alljobposts")
   }
 
   getoneworker(worker_id:string):Observable<any>{
     return this.http.get(this.baseurl+"/worker/"+worker_id)
   }
-
+  getallclients():Observable<any>{
+    return this.http.get(this.baseurl+"/allclient")
+  }
   getOneClient(client_id:string):Observable<any>{
     return this.http.get(this.baseurl+"/client/"+client_id)
   }

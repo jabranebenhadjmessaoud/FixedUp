@@ -14,6 +14,7 @@ import { CarpenterslistComponent } from './carpenterslist/carpenterslist.compone
 import { PostFormComponent } from './post-form/post-form.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 export const routes: Routes = [
@@ -33,6 +34,7 @@ export const routes: Routes = [
     {path:"newpost",component:PostFormComponent},
     {path:"appointment/:id",component:AppointmentComponent},
     {path:"editprofile",component:EditProfilComponent},
+    {path:"admin",component:AdminDashboardComponent}
 ]
 
 
