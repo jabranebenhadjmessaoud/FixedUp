@@ -13,7 +13,6 @@
                             <tr>
                                 <th data-sort="name">Name ↕</th>
                                 <th data-sort="date">Date of creation ↕</th>
-                                <th data-sort="rating">Rating ↕</th>
                                 <th>Address</th>
                                 <th>Category</th>
                                 <th>Actions</th>
@@ -22,8 +21,7 @@
                         <tbody>
                             <tr  *ngFor="let worker of workerslist">
                             <td>{{worker.firstName}} {{worker.lastName}} </td>
-                            <td> {{worker.createdAt?worker.createdAt:"Joining date is not available"}} </td>
-                            <td> if worker.rating["rating"] == None 0 else worker.rating</td>
+                            <td> {{worker.createdAt?worker.createdAt:"Joining date is not available"}} </td>                           
                             <td>{{worker.address}} </td>
                             <td>{{worker.category}}</td>
                             <td> <a class="btn btn-danger" (click)="deleteworker(worker._id)" >delete</a></td>

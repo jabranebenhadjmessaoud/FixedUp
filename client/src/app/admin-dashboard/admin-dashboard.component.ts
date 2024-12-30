@@ -13,7 +13,11 @@ export class AdminDashboardComponent {
 
   workerslist: any[] = []
   clientslist:any[]=[]
+  allrates:any
   workerid:any
+  rates:any
+  final:any
+  count:number=0
   constructor(private apiService: ApiService) {}
   ngOnInit(): void {
     this.apiService.getallworkers().subscribe({

@@ -26,7 +26,9 @@ export class AppointmentComponent {
   addAppointment():void{
     this.data={...this.data,client:this.client_id,worker:this.worker_id}
     this.apiService.createAppointment(this.data).subscribe({
-      next:res=>console.log("appointment"),
+      next:res=>{console.log("appointment");
+        this.router.navigate(['/categories']);  
+      },
       error:err=>this.errMessage=err
     })
   }

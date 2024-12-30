@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from "@angular/material/card";
 import { ApiService } from '../api.service';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute,Router, RouterModule } from '@angular/router';
 import { User } from '../user';
 import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-worker-profile',
   imports: [CommonModule,MatCardModule,RouterModule,FormsModule],
@@ -24,7 +25,7 @@ export class WorkerProfileComponent {
   rates:any
   final:any
   count:number=0
-  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiService,private router:Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.workerid = this.route.snapshot.paramMap.get('id')
@@ -79,7 +80,10 @@ export class WorkerProfileComponent {
     const data:object={worker:this.workerid,client:this.client_id,rate:this.rate}
     console.log(data)
     this.apiService.addRate(data).subscribe({
-      next:data=>console.log("rated"),
+      next:data=>{console.log("rated");
+        window.location.reload()
+        // this.router.navigateByUrl('/workerprofile/'+this.workerid);
+      },
       error:err=>console.log(err)
     })
   }

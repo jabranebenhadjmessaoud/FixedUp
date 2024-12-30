@@ -51,6 +51,9 @@
 
                 <div class="portfolio-section">
                     <h3>Recent Work</h3>
+                    <div class="profile-actions" *ngIf="acctype==='Worker'">
+                        <button class="edit-profile-btn" routerLink="/newpost"><i class="material-icons" >add_circle_outline</i> Add New Job</button>
+                    </div>
                     <div class="portfolio-grid" *ngFor="let job of alljobs">
                         <mat-card class="portfolio-item">
                             <mat-card-header> 
@@ -71,7 +74,7 @@
                     <button class="edit-profile-btn" routerLink="/appointment/{{workerdetails._id}}"> <i class="material-icons">handshake</i> Get Appointment <i class="material-icons">handshake</i> </button>
                 </div>
 
-                <div class="profile-actions">
+                <div class="profile-actions"*ngIf="acctype==='Worker'">
                     <button class="edit-profile-btn" routerLink="/editprofile">Edit Profile</button>
                 </div>
             </div>
