@@ -19,7 +19,7 @@ router3.route("/allclient")
 
 router3.route("/client/:id")
     .get(ClientController.retrieveOne)
-    .put(ClientController.update)
+    .patch(ClientController.update)
     .delete(ClientController.DeleteOne)
 
 export default router3

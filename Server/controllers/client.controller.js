@@ -135,7 +135,7 @@ const ClientController={
     logout :async (req, res) => {
         try {
             res.clearCookie('clienttoken') 
-            res.status(200)
+            res.status(200).json({action:"logged out"})
             }
         catch (err) {
             console.log(err)
