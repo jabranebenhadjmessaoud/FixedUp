@@ -19,7 +19,6 @@ export class WorkerProfileComponent {
   workerid:string|null=null
   alljobs:any 
   workerjobs:any
-  errMessage:any
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
@@ -54,7 +53,7 @@ export class WorkerProfileComponent {
     console.log(data)
     this.apiService.addRate(data).subscribe({
       next:data=>console.log("rated"),
-      error:err=>this.errMessage=err
+      error:err=>console.log(err)
     })
   }
 
