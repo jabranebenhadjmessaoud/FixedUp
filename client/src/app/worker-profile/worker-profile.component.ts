@@ -19,12 +19,7 @@ export class WorkerProfileComponent {
   workerid:string|null=null
   alljobs:any 
   workerjobs:any
-<<<<<<< HEAD
   joiningdate:any
-=======
-  errMessage:any
-
->>>>>>> bb4479ba8bd739eab2df06bd544b157d6f2013da
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -63,7 +58,7 @@ export class WorkerProfileComponent {
     console.log(data)
     this.apiService.addRate(data).subscribe({
       next:data=>console.log("rated"),
-      error:err=>this.errMessage=err
+      error:err=>console.log(err)
     })
   }
 
