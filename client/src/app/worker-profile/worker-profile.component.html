@@ -39,9 +39,9 @@
                     <h3>Rating <i class="material-icons">star_border</i></h3>
                     <form (ngSubmit)="rating()" class="rating-form">
                         <div class="form-group">
-                            <input type="number" name="rate" class="rating-input" placeholder="Rate this worker" [(ngModel)]="data.rate">
+                            <input type="number" name="rate" class="rating-input" placeholder="Rate this worker" [(ngModel)]="rate" value=0>
                         </div>
-                        <button class="submit-rating">Submit Rating</button>
+                        <input type="submit" class="submit-rating" value="Submit Rating">
                     </form>
                 </div>
 

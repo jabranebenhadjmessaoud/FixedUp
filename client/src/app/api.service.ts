@@ -52,6 +52,18 @@ export class ApiService {
     )
   }
 
+  getJobByWorker(id:string):Observable <any>{
+    return this.http.get(this.baseurl+"/jobpost/"+id)
+  }
+
+  getAppointmentByWorker(id:string):Observable <any>{
+    return this.http.get(this.baseurl+"/apointment/"+id)
+  }
+
+  getRateByWorker(id:string):Observable <any>{
+    return this.http.get(this.baseurl+"/allrates/"+id)
+  }
+
   uploadImage(sticker: File): Observable<any> {
     console.log(sticker);
     const data = new FormData();

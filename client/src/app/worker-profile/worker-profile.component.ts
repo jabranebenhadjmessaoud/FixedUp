@@ -15,15 +15,17 @@ export class WorkerProfileComponent {
 
   workerdetails: User = {}
   client_id:string|null=null
-  data:any
+  rate:number=0
   workerid:string|null=null
   alljobs:any 
   workerjobs:any
+  errMessage:any
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.workerid = this.route.snapshot.paramMap.get('id')
+    
     this.client_id=localStorage.getItem("user_id")
     if (this.workerid) {
       this.apiService.getoneworker(this.workerid).subscribe({
@@ -33,7 +35,7 @@ export class WorkerProfileComponent {
       })
     }
     if (this.workerid) {
-      this.apiService.getalljobs().subscribe({
+      this.apiService.getJobByWorker(this.workerid).subscribe({
         next: data => {this.alljobs = data;
           console.log("all jobs list");
                       console.log(this.alljobs)
@@ -46,10 +48,13 @@ export class WorkerProfileComponent {
   }
 
   rating():void{
-    this.data={...this.data,worker:this.workerid,client:this.client_id}
-    this.apiService.addRate(this.data).subscribe({
+    console.log("from rating",this.rate)
+    console.log("*****",this.workerid)
+    const data:object={worker:this.workerid,client:this.client_id,rate:this.rate}
+    console.log(data)
+    this.apiService.addRate(data).subscribe({
       next:data=>console.log("rated"),
-      error:err=>console.error(err)
+      error:err=>this.errMessage=err
     })
   }
 

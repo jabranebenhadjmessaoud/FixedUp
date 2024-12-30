@@ -20,6 +20,17 @@ const RateController={
             console.log(err)
             res.status(400).json(err)
         }
+    },
+
+    retrieveByWorker: async (req, res) => {
+        try {
+            const allrates = await Rate.find({worker:req.params.id})
+            res.json(allrates)
+            console.log(allrates);
+        } catch (err) {
+            console.log(err)
+            res.status(400).json(err)
+        }
     }
 }
 

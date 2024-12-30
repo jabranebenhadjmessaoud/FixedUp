@@ -9,5 +9,8 @@ router5.post("/addrate",authenticate,RateController.create)
 router5.route("/allrates")
     .get(RateController.retrieveAll)
 
+router5.route("/allrates/:id")
+    .get(RateController.retrieveByWorker)
+
 
 export default router5

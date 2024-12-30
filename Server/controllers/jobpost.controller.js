@@ -23,6 +23,16 @@ const JobPostController={
             res.status(400).json(err)
         }
     },
+    retrieveByWorker: async (req, res) => {
+        try {
+            const Alljobposts = await JobPost.find({worker:req.params.id})
+            res.json(Alljobposts)
+            console.log(Alljobposts);
+        } catch (err) {
+            console.log(err)
+            res.status(400).json(err)
+        }
+    },
     retrieveOne: async (req, res) => {
         try {
             const onejobpost = await JobPost.findById(req.params.id)

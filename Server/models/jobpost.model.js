@@ -1,8 +1,9 @@
 import {model ,Schema} from 'mongoose'
-
+import Worker from "./worker.model.js"
 const donjobSchema= new Schema({
     worker:{
-        type:{ type: Schema.Types.ObjectId, ref: 'Worker' },
+        type:String,
+        required:true
     },
     title:{
         type:String,

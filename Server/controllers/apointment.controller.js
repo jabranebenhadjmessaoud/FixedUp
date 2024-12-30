@@ -23,6 +23,18 @@ const ApointementController={
             res.status(400).json(err)
         }
     },
+
+    retrieveByWorker: async (req, res) => {
+        try {
+            const Allapointments = await Apointement.find({worker:req.params.id})
+            res.json(Allapointments)
+            console.log(Allapointments);
+        } catch (err) {
+            console.log(err)
+            res.status(400).json(err)
+        }
+    },
+
     retrieveOne: async (req, res) => {
         try {
             const Oneapointment = await Apointement.findById(req.params.id)
