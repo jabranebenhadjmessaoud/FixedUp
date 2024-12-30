@@ -146,12 +146,19 @@
 }
 
 .portfolio-grid {
+    min-height: 50vh;
+    padding: 1rem;
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 0.5rem;
 }
 
 .portfolio-item {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     transition: transform 0.3s ease;

@@ -15,6 +15,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(express.json(), cors());
+app.use('/uploads', express.static('public/uploads'));
 console.log(`you are On server side port: ${PORT}`);
 
 const storage = multer.diskStorage({

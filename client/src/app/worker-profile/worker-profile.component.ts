@@ -15,17 +15,22 @@ export class WorkerProfileComponent {
 
   workerdetails: User = {}
   client_id:string|null=null
+  acctype:any
   rate:number=0
   workerid:string|null=null
   alljobs:any 
   workerjobs:any
   joiningdate:any
+  rates:any
+  final:any
+  count:number=0
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.workerid = this.route.snapshot.paramMap.get('id')
     
     this.client_id=localStorage.getItem("user_id")
+    this.acctype=localStorage.getItem("acctype")
     if (this.workerid) {
       this.apiService.getoneworker(this.workerid).subscribe({
         next: data => {this.workerdetails = data;
@@ -45,6 +50,23 @@ export class WorkerProfileComponent {
                       console.log(this.alljobs)
                       // this.workerjobs=this.alljobs.filter((job: string | any[]) => job. > 6)
                       ;;},
+        error: err => console.error("Error fetching item:", err)
+      })
+    }
+    if (this.workerid) {
+      this.apiService.getRateByWorker(this.workerid).subscribe({
+        next: data => {this.rates = data;
+          console.log("all rates list");
+                      console.log(this.rates);
+                      for(let obj of this.rates){
+                        this.count+=obj.rate
+                      }
+                      console.log(this.count);
+                      this.final=this.count/this.rates.length;
+                      console.log(this.final);
+
+
+          },
         error: err => console.error("Error fetching item:", err)
       })
     }

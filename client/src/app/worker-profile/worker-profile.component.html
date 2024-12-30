@@ -26,22 +26,22 @@
 
                 <div class="profile-details">
                     <div class="detail-section">
-                        <h3>Description</h3>
+                        <h3> <i class="material-icons">description</i> Description</h3>
                         <p>{{workerdetails.description}}</p>
                     </div>
                     <div class="detail-section">
-                        <h3>Skills</h3>
+                        <h3><i class="material-icons">thumb_up_off_alt</i> Skills</h3>
                         <p>{{workerdetails.skills}}</p>
                     </div>
                     <div class="detail-section">
-                        <h3>Member Since</h3>
+                        <h3> <i class="material-icons">access_time</i> Member Since  </h3>
                         <p>{{(joiningdate)?joiningdate:"Joining date is not available"}}</p>
                     </div>
                 </div>
 
                 <div class="rating-section">
-                    <h3>Rating <i class="material-icons">star_border</i></h3>
-                    <form (ngSubmit)="rating()" class="rating-form">
+                    <h3>Rating <i class="material-icons">star_border</i>:  {{(final?final:"Worker Doesn't Have Ratings Yet ")}} </h3>
+                    <form (ngSubmit)="rating()" class="rating-form" *ngIf="acctype==='Client'">
                         <div class="form-group">
                             <input type="number" name="rate" class="rating-input" placeholder="Rate this worker" [(ngModel)]="rate" value=0>
                         </div>
@@ -51,33 +51,24 @@
 
                 <div class="portfolio-section">
                     <h3>Recent Work</h3>
-                    <div class="portfolio-grid">
+                    <div class="portfolio-grid" *ngFor="let job of alljobs">
                         <mat-card class="portfolio-item">
                             <mat-card-header> 
-                                <mat-card-title>Job Title</mat-card-title> 
-                                <mat-card-subtitle>Brief</mat-card-subtitle> 
+                                <mat-card-title>Job Title: {{job.title}} </mat-card-title> 
+                                <mat-card-subtitle>Description:</mat-card-subtitle> 
                             </mat-card-header>
                             <mat-card-content> 
-                                <p>this is a description about the done job</p> 
+                                <p>{{job.description}}</p>
+                                <img src="http://localhost:9999/uploads/{{job.img}}" alt="" width="80" height="80">
+                                
                             </mat-card-content> 
-                            <mat-card-actions> 
-                                <button mat-button class="edit-button">Edit Post</button> 
-                            </mat-card-actions>  
+                        
                         </mat-card>
 
-                        <mat-card class="portfolio-item">
-                            <mat-card-header> 
-                                <mat-card-title>Job Title</mat-card-title> 
-                                <mat-card-subtitle>Brief</mat-card-subtitle> 
-                            </mat-card-header>
-                            <mat-card-content> 
-                                <p>this is a description about the done job</p> 
-                            </mat-card-content> 
-                            <mat-card-actions> 
-                                <button mat-button class="edit-button">Edit Post</button> 
-                            </mat-card-actions>  
-                        </mat-card>
                     </div>
+                </div>
+                <div class="profile-actions" *ngIf="acctype==='Client'">
+                    <button class="edit-profile-btn" routerLink="/appointment/{{workerdetails._id}}"> <i class="material-icons">handshake</i> Get Appointment <i class="material-icons">handshake</i> </button>
                 </div>
 
                 <div class="profile-actions">

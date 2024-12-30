@@ -9,17 +9,17 @@
                     <form (ngSubmit)="addPost()">
                         <p *ngIf="errMessage.address" class="error" style="color: red;" >{{errMessage.address.message}}</p>
                         <div class="form-group">
-                            <label for="title">Title : </label>
+                            <label for="title"><i class="material-icons">title</i> Title : </label>
                             <input type="text" name="title" class="form-control" [(ngModel)]="data.title">
                             <p *ngIf="errMessage.title" class="error" style="color: red;" >{{errMessage.title.message}}</p>
                         </div>
                         <div class="form-group">
-                            <label for="description">Description : </label>
+                            <label for="description"><i class="material-icons">description</i> Description : </label>
                             <input type="text" name="description" class="form-control" [(ngModel)]="data.description" >
                             <p *ngIf="errMessage.description" class="error" style="color: red;" >{{errMessage.description.message}}</p>
                         </div>
                         <div class="form-group">
-                            <label for="img">Image : </label>
+                            <label for="img"> <i class="material-icons">add_a_photo</i> Image : </label>
                             <input type="file" name="img" class="form-control" (change)="onFileSelected($event)">
                             <p *ngIf="errMessage.img" class="error" style="color: red;" >{{errMessage.img.message}}</p>
                         </div>

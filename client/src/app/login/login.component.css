@@ -1,5 +1,7 @@
 
-
+.allpage{
+  background: linear-gradient(180deg, #003546 0%,#09566d 50%, #00303f 100%);
+}
 .text-right.forget-pass a {
     font-size: 12px;
     color: #03f3e9;

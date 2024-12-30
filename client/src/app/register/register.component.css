@@ -1,4 +1,6 @@
-
+.allpage{
+  background: linear-gradient(180deg, #003546 0%,#09566d 50%, #00303f 100%);
+}
 
 .login{
     color: #fff;
