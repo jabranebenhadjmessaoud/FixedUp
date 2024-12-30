@@ -10,7 +10,7 @@ router2.route("/allapointments")
     .get(ApointementController.retrieveAll)
 
 router2.route("/apointment/:id")
-    .get(ApointementController.retrieveOne)
+    .get(ApointementController.retrieveByWorker)
     .put(ApointementController.update)
     .delete(ApointementController.DeleteOne)
 

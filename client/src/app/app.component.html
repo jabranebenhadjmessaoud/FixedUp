@@ -10,22 +10,22 @@
                 <span>Home</span>
             </button>
             
-            <button mat-fab extended routerLink="/categories" class="nav-button">
+            <button *ngIf="acctype=='Client'" mat-fab extended routerLink="/categories" class="nav-button">
                 <mat-icon>category</mat-icon>
                 <span>Categories</span>
             </button>
             
-            <button mat-fab extended routerLink="/login" class="nav-button">
+            <button *ngIf="!acctype" mat-fab extended routerLink="/login" class="nav-button">
                 <mat-icon>login</mat-icon>
                 <span>Login</span>
             </button>
             
-            <button mat-fab extended routerLink="/register" class="nav-button">
+            <button *ngIf="!acctype" mat-fab extended routerLink="/register" class="nav-button">
                 <mat-icon>draw</mat-icon>
                 <span>Register</span>
             </button>
             
-            <button mat-fab extended (click)="onLogout()" class="nav-button logout-btn">
+            <button *ngIf="acctype" mat-fab extended (click)="onLogout()" class="nav-button logout-btn">
                 <mat-icon>logout</mat-icon>
                 <span>Logout</span>
             </button>

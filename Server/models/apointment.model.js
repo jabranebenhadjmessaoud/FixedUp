@@ -2,10 +2,12 @@ import {model ,Schema} from 'mongoose'
 
 const apointement= new Schema({
     client:{
-        type:{ type: Schema.Types.ObjectId, ref: 'Client' }
+        type:String,
+        required:true
         },
     worker:{
-        type:{ type: Schema.Types.ObjectId, ref: 'Worker' }
+        type:String,
+        required:true
         },
     date:{
         type:Date,

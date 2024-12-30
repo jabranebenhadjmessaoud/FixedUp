@@ -11,7 +11,7 @@ router.route("/alljobposts")
     .get(JobPostController.retrieveAll)
 
 router.route("/jobpost/:id")
-    .get(JobPostController.retrieveOne)
+    .get(JobPostController.retrieveByWorker)
     .put(JobPostController.update)
     .delete(JobPostController.DeleteOne)
 

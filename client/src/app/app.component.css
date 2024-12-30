@@ -13,7 +13,11 @@ html, body {
   background: linear-gradient(to right, rgba(1, 55, 77, 0.95), rgba(0, 61, 74, 0.95));
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 20px rgba(3, 243, 233, 0.15);
+<<<<<<< HEAD
   position: sticky;
+=======
+  position: relative;
+>>>>>>> bb4479ba8bd739eab2df06bd544b157d6f2013da
   width: 100%;
   z-index: 1000;
   height: 80px;
