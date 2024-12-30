@@ -79,11 +79,18 @@ export class ApiService {
   getoneworker(worker_id:string):Observable<any>{
     return this.http.get(this.baseurl+"/worker/"+worker_id)
   }
+  
+  deleteworker(worker_id:string):Observable<any>{
+    return this.http.delete(this.baseurl+"/worker/"+worker_id)
+  }
   getallclients():Observable<any>{
     return this.http.get(this.baseurl+"/allclient")
   }
   getOneClient(client_id:string):Observable<any>{
     return this.http.get(this.baseurl+"/client/"+client_id)
+  }
+  deleteclient(client_id:string):Observable<any>{
+    return this.http.delete(this.baseurl+"/client/"+client_id)
   }
 
   UpdateClient(data:User):Observable<any>{

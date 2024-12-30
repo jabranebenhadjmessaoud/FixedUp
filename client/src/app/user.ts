@@ -11,4 +11,5 @@ export interface User {
     skills?:string
     password?:string
     confirmPassword?:string
+    createdAt?:Date
 }

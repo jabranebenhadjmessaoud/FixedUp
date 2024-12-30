@@ -56,7 +56,7 @@ const WorkerSchema=new Schema(
             maxlength:[40,"Password must be less than 40 characters"]
         }
     },
-    {timestamp:true}   
+    {timestamps:true}   
 )
 
 WorkerSchema.virtual('confirmPassword')

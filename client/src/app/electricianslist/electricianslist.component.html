@@ -12,13 +12,20 @@
                 </div>
                 
                 <div class="worker-info">
-                    <h3 class="worker-name">{{worker.firstname}} {{worker.lastname}}</h3>
+                    <div class="info-item">
+                        <i class="material-icons">person</i>
+                        <span class="worker-name">{{worker.firstName}} {{worker.lastName}}</span>
+                        
+                    </div>
                     
                     <div class="info-item">
                         <i class="material-icons">email</i>
                         <span>{{worker.email}}</span>
                     </div>
-                    
+                    <div class="info-item">
+                        <i class="material-icons">phone</i>
+                        <span>{{worker.phone}}</span>
+                    </div>
                     <div class="info-item">
                         <i class="material-icons">location_on</i>
                         <span>{{worker.address}}</span>

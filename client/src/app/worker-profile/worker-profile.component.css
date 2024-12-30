@@ -173,6 +173,11 @@ mat-card-content {
     color: #fff;
 }
 
+.join {
+    font-size: 18px;
+    color: #bbdeff;
+    font-weight: bold;
+}
 .edit-button {
     background-color: #047d9b !important;
     color: white !important;

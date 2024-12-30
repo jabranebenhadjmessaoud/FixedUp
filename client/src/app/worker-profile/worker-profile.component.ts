@@ -19,7 +19,7 @@ export class WorkerProfileComponent {
   workerid:string|null=null
   alljobs:any 
   workerjobs:any
-
+  joiningdate:any
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -28,6 +28,11 @@ export class WorkerProfileComponent {
     if (this.workerid) {
       this.apiService.getoneworker(this.workerid).subscribe({
         next: data => {this.workerdetails = data;
+                      this.joiningdate=data.createdAt;
+                      this.joiningdate=this.joiningdate.slice(0,10)
+                      console.log("*******************************");
+                      console.log(this.joiningdate);
+
                       console.log(this.workerdetails);},
         error: err => console.error("Error fetching item:", err)
       })

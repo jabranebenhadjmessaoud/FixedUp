@@ -44,7 +44,7 @@ const ClientSchema=new Schema(
             maxlength:[40,"Password must be less than 40 characters"]
         }
     },
-    {timestamp:true}   
+    {timestamps:true}   
 )
 
 ClientSchema.virtual('confirmPassword')
