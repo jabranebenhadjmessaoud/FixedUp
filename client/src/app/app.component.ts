@@ -37,6 +37,7 @@ export class AppComponent {
           localStorage.removeItem('token');
           localStorage.removeItem('acctype');
           this.router.navigate(['/login']);
+          window.location.reload()
         },
         error: (err) => {
           console.error('Error during logout:', err);
@@ -50,6 +51,7 @@ export class AppComponent {
           localStorage.removeItem('token');
           localStorage.removeItem('acctype');
           this.router.navigate(['/login']);
+          window.location.reload()
         },
         error: (err) => {
           console.error('Error during logout:', err);

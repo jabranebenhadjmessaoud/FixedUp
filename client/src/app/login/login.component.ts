@@ -14,7 +14,7 @@ export class LoginComponent {
   data:User={}
   errMessage:any={}
   constructor(private apiService:ApiService,private router:Router){}
-  login():void{
+  login() :void {
     let verif:boolean=false
     this.apiService.login(this.data).subscribe({
       next:(res)=>{
@@ -27,6 +27,9 @@ export class LoginComponent {
         console.log(verif)
         if(localStorage.getItem('acctype')=='Client'){
           this.router.navigate(['/categories'])
+        }
+        if(localStorage.getItem('acctype')=='Admin'){
+          this.router.navigate(['/admin'])
         }
       },
       error:err=>this.errMessage=err
@@ -42,6 +45,7 @@ export class LoginComponent {
           console.log("worker login")
           console.log(res)
           this.router.navigate(['/workerprofile/'+localStorage.getItem('user_id')])
+          
         },
         error:err=>this.errMessage=err
       })

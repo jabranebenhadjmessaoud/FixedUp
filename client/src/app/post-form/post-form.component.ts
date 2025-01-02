@@ -36,7 +36,7 @@ export class PostFormComponent {
             error: err => this.errMessage = err
           });
         }
-        console.log("posted")
+        this.router.navigate(['/workerprofile/'+this.user_id])
       },
       error:err=>this.errMessage=err
     })
